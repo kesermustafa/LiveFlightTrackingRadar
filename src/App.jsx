@@ -21,16 +21,20 @@ const App = () => {
         dispatch(getFlights())
     }, []);
 
+    const handleClick = () => {
+        setDetailId(null);  // detailId'yi sıfırla
+    }
+
     return (
         <BrowserRouter>
             <Header />
             <Buttons/>
             <Routes>
-                <Route path="/" element={<Map setDetailId={setDetailId}  />}/>
-                <Route path="/list" element={<List/>}/>
+                <Route path="/" element={<Map setDetailId={setDetailId}  />}/> {/* handleClick'i Map'e geçir */}
+                <Route path="/list" element={<List setDetailId={setDetailId}/>}/>
             </Routes>
 
-            {detailId && <Modal id={detailId} close={()=>setDetailId(null)} />}
+            {detailId && <Modal id={detailId} close={()=>{handleClick()}} />}
 
         </BrowserRouter>
     );

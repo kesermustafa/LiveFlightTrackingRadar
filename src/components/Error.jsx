@@ -9,7 +9,6 @@ const Error = ({msg}) => {
                 <h4>Beklenmedik bir hata olustu !</h4>
                 <p className='text-nowrap'>{msg}</p>
             </div>
-
         </div>
     );
 };
